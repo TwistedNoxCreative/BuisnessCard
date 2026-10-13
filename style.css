@@ -1,0 +1,393 @@
+/* ==========================================================================
+   TWISTEDNOX CREATIVE - DIGITAL BUSINESS CARD & VCARD HUB (style.css)
+   Author: Raymond McCoy
+   Brand Hex Codes Applied from Documentation:
+   - Core / Dark:
+     #030405 (Near Black), #07080A (Deep Black), #0D0F11 (Charcoal),
+     #121417 (Gunmetal), #181B1E (Dark Gray), #26292D (Graphite),
+     #303135 (Light Gunmetal)
+   - Metallic / Silver:
+     #797C81 (Dark Silver), #A7AAAD (Silver), #CED0D3 (Light Silver),
+     #F4F6F8 (Bright Metallic White)
+   - Cyan Accent:
+     #146974 (Deep Cyan), #66A9B4 (Steel Cyan), #8BF0F9 (Electric Cyan)
+   - Magenta Accent:
+     #712560 (Deep Magenta), #AC599C (Magenta), #F395DD (Bright Pink/Magenta)
+   ========================================================================== */
+
+:root {
+  --near-black: #030405;
+  --deep-black: #07080A;
+  --charcoal: #0D0F11;
+  --gunmetal: #121417;
+  --dark-gray: #181B1E;
+  --graphite: #26292D;
+  --light-gunmetal: #303135;
+
+  --dark-silver: #797C81;
+  --silver: #A7AAAD;
+  --light-silver: #CED0D3;
+  --metallic-white: #F4F6F8;
+
+  --deep-cyan: #146974;
+  --steel-cyan: #66A9B4;
+  --electric-cyan: #8BF0F9;
+
+  --deep-magenta: #712560;
+  --magenta: #AC599C;
+  --bright-magenta: #F395DD;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--near-black);
+  color: var(--metallic-white);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(139, 240, 249, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 82% 82%, rgba(243, 149, 221, 0.12) 0%, transparent 45%);
+}
+
+.business-card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: linear-gradient(165deg, var(--gunmetal) 0%, var(--charcoal) 55%, var(--deep-black) 100%);
+  border: 2px solid var(--graphite);
+  border-radius: 22px;
+  padding: 28px 24px;
+  box-shadow:
+    0 24px 50px rgba(3, 4, 5, 0.9),
+    0 0 0 1px rgba(139, 240, 249, 0.2),
+    0 0 32px rgba(139, 240, 249, 0.08);
+  overflow: hidden;
+}
+
+.card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--electric-cyan), var(--magenta), var(--bright-magenta));
+}
+
+/* Toast Banner for Auto-vCard Download */
+.vcard-toast {
+  display: none;
+  background: rgba(20, 105, 116, 0.35);
+  border: 1px solid var(--electric-cyan);
+  color: var(--metallic-white);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.vcard-toast.active {
+  display: block;
+}
+
+/* Header: Project 3 Logo & Brand Identity */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.logo-container {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background-color: var(--dark-gray);
+  border: 1.5px solid var(--deep-cyan);
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 14px rgba(139, 240, 249, 0.22);
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.business-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--metallic-white);
+}
+
+.business-name span {
+  color: var(--electric-cyan);
+  text-shadow: 0 0 10px rgba(139, 240, 249, 0.35);
+}
+
+.tagline {
+  font-size: 0.84rem;
+  font-style: italic;
+  color: var(--bright-magenta);
+  margin-top: 3px;
+}
+
+/* Profile Section: Circular Photo + Name & Role */
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(24, 27, 30, 0.72);
+  border: 1px solid var(--light-gunmetal);
+  border-radius: 16px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.avatar-ring {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--electric-cyan), var(--bright-magenta));
+  box-shadow: 0 0 16px rgba(139, 240, 249, 0.28);
+  flex-shrink: 0;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--deep-black);
+  background-color: var(--dark-gray);
+}
+
+.person-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.person-name {
+  font-size: 1.38rem;
+  font-weight: 700;
+  color: var(--metallic-white);
+}
+
+.person-role {
+  font-size: 0.84rem;
+  color: var(--light-silver);
+  margin: 2px 0 8px 0;
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-pill {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--electric-cyan);
+  background-color: var(--deep-black);
+  border: 1px solid var(--deep-cyan);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Primary Action: Save Contact (vCard) Button */
+.vcard-primary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, var(--deep-cyan) 0%, var(--deep-magenta) 100%);
+  border: 1.5px solid var(--electric-cyan);
+  border-radius: 12px;
+  color: var(--metallic-white);
+  font-size: 0.96rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(139, 240, 249, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vcard-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(243, 149, 221, 0.35);
+  border-color: var(--bright-magenta);
+}
+
+/* Clickable Contact Links (tel:, mailto:, website) */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background-color: var(--dark-gray);
+  border: 1px solid var(--light-gunmetal);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--metallic-white);
+  transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+  border-color: var(--electric-cyan);
+  background-color: var(--graphite);
+  transform: translateX(3px);
+}
+
+.contact-item.magenta-hover:hover {
+  border-color: var(--bright-magenta);
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: var(--gunmetal);
+  border: 1px solid var(--graphite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--electric-cyan);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.magenta-hover .item-icon {
+  color: var(--bright-magenta);
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--silver);
+}
+
+.item-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--metallic-white);
+  margin-top: 1px;
+}
+
+.item-action {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--steel-cyan);
+}
+
+.magenta-hover .item-action {
+  color: var(--magenta);
+}
+
+/* QR Code Section */
+.qr-section {
+  background-color: rgba(13, 15, 17, 0.85);
+  border: 1px solid var(--graphite);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+}
+
+.qr-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--electric-cyan);
+  margin-bottom: 4px;
+}
+
+.qr-subtitle {
+  font-size: 0.75rem;
+  color: var(--light-silver);
+  margin-bottom: 12px;
+}
+
+.qr-frame {
+  display: inline-flex;
+  padding: 10px;
+  background: var(--deep-black);
+  border: 2px solid var(--magenta);
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(172, 89, 156, 0.25);
+  margin-bottom: 10px;
+}
+
+.qr-image {
+  width: 148px;
+  height: 148px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.subdomain-badge {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--metallic-white);
+  background-color: var(--dark-gray);
+  border: 1px solid var(--deep-cyan);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-top: 4px;
+}
+
+/* Footer */
+.card-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--graphite);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--dark-silver);
+}
